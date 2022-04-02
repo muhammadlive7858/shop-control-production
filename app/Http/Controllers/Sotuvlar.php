@@ -26,7 +26,8 @@ class Sotuvlar extends Controller
     }
     public function destroy($id){
         $delete = Sotuv_Royxati::find($id);
+        dd($delete);
         $delete = $delete->delete();
-        return redirect()->route('sotuvlar');
+        return redirect()->back();
     }
 }

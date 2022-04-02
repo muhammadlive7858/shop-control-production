@@ -81,6 +81,7 @@ class SotuvOfisi extends Controller
                 'count'=>$count,
                 'foyda'=>$foyda,
                 'skidka'=>$skidka,
+                'tolav_turi'=>$request->tolav_turi,
             ]);
             $i++;
         }

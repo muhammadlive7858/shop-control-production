@@ -21,6 +21,8 @@ class CreateSotuvRoyxatisTable extends Migration
             $table->integer('count');
             $table->string('foyda');
             $table->string('skidka');
+            $table->string('tolav_turi');
+
 
         });
     }

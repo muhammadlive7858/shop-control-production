@@ -31,11 +31,15 @@
         margin: 10px auto !important;
         padding: 0 !important;
     }
-}
+} */
 @media(max-width:413){
     *{
         font-size: 8px !important;
         font-family: sans-serif !important;
+    }
+    .row{
+        display:flex !important;
+        flex-direction: column !important;
     }
     h1{
         font-size: 12px !important;
@@ -51,4 +55,4 @@
     .seconds{
         display:none ;
     }
-} */
+} 

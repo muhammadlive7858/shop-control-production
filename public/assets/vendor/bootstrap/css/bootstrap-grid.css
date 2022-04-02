@@ -77,6 +77,12 @@
     max-width: 540px;
   }
 }
+@media(max-width:414){
+  .row{
+    display:flex;
+    flex-direction: column;
+  }
+}
 @media (min-width: 768px) {
   .container-md, .container-sm, .container {
     max-width: 720px;

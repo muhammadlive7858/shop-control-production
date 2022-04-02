@@ -25,8 +25,9 @@
 <hr>
 
 
-
-        <form action="{{ route('sotish') }}" method="post">
+<form action="{{ route('sotish') }}" method="post">
+<div class="row">
+    <div class="col-10">
             @csrf
 
             <table class="table table-bordered w-100">
@@ -59,25 +60,33 @@
                 </tbody>
             </table>
             
+            
             <hr>
-            <div class="w-100 d-flex align-center justify-content-between">
-                <div class="div w-50 d-flex align-center justify-content-center mx-1">
-                    <h4 class="w-50">To'lav turini tanlang</h4>
-                    <select name="tolav_turi" id="" class="form-control w-50">
+        </div>
+        <div class="col-2 d-flex flex-column">
+            <div class="w-100 d-flex align-center justify-content-between flex-column ">
+                <div class="div w-100 d-flex align-center justify-content-center mx-1 flex-column">
+                    <select name="tolav_turi" id="" class="form-control w-100">
+                        <option>To'lav turini tanlang</option>
                         <option value="Naxt">Naxt</option>
                         <option value="Plastik">Plastik</option>
                     </select>
                 </div>
-                <div class="div w-50 d-flex align-center justify-content-center mx-1">
-                    <h4 class="w-50">Qaytim pulini kiriting:</h4>
-                    <input type="number" name="skidka" id="" value="0" class="form-control  w-50">
+                <div class="div w-100 d-flex align-center justify-content-center mx-1 flex-column">
+                    <h6 class="w-100 my-2"><b>Qaytim pulini kiriting:</b></h6>
+                    <input type="number" name="skidka" id="" value="0" class="form-control  w-100">
                 </div>
             </div>
             <hr>
-            <button  class="btn btn-primary" onclick="sotish()">Sotish</button>
-            <a href="{{ route('tozalash') }}" onclick="tozalash()" class="btn btn-danger">Tozalash</a>
-        </form>
-        <!-- <label for="sotish" class="btn btn-primary">Sotish</label> -->
+            <div class="d-flex">
+                <button  class="btn btn-primary w-50 mx-1" onclick="sotish()">Sotish</button>
+                <a href="{{ route('tozalash') }}" onclick="tozalash()" class="btn btn-danger w-50 mx-1">Tozalash</a>
+            </div>
+        </div>
+    </div>
+</form>
+    
+    <!-- <label for="sotish" class="btn btn-primary">Sotish</label> -->
 
 <script>
     function sotish(){

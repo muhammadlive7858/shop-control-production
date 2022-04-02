@@ -23,6 +23,7 @@
                     <th>Rasm</th>
                     <th>Narxi</th>
                     <th scope="col">ID raqami</th>
+                    <th>Taminotchi</th>
                     <th>Mavjud</th>
                 </tr>
             </thead>
@@ -31,9 +32,10 @@
                     <tr>
                         <td>{{ $prod->id }}</td>
                         <td>{{ $prod->name }}</td>
-                        <td>{{ $prod->image }}</td>
+                        <td> <image src="{{ $prod->image }}" style="width:120px;height:80px"></image> </td>
                         <td>{{ $prod->price }}</td>
                         <td>{{ $prod->producttime }}</td>
+                        <td>{{$prod->taminotchi  }}</td>
                         <td>{{ $prod->count }}</td>
                     </tr>
                 @empty

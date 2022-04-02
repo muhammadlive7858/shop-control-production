@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Models\taminotchi;
 
 class ProductController extends Controller
 {
@@ -25,9 +26,10 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
+        $taminot = taminotchi::all();
         $cate = Category::all();
-        return view('product.create',compact('cate'));
+        return view('product.create',compact('cate','taminot'));
     }
 
     /**
@@ -38,14 +40,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {   
-        $validate = $request->validate([
-                'name'=>'string|min:3|max:255',
-                'price'=>'numeric',
-                'shop_price'=>'numeric',
-                'count'=>'numeric',
-                'image'=>'mimes:jpg,bmp,png|size:1024',
-                'desc'=>'nullable|max:100',
-        ]);
+        // $validate = $request->validate([
+        //         'name'=>'string|min:3|max:255',
+        //         'price'=>'numeric',
+        //         'shop_price'=>'numeric',
+        //         'count'=>'numeric',
+        //         'image'=>'mimes:jpg,jpeg,png|size:85000000',
+        //         'desc'=>'nullable|max:100',
+        // ]);
         $uploaded = $request->file('image');
         if($uploaded){
             $uploaded = $request->file('image');
@@ -68,6 +70,7 @@ class ProductController extends Controller
                     'desc'=>$request->desc,
                     'image'=>$baza_name,
                     'producttime'=>$request->producttime,
+                    'taminotchi'=>$request->taminotchi,
                     'price'=>$request->price,
                     'shop_price'=>$request->shop_price,
                     'count'=>$request->count

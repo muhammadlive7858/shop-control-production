@@ -32,11 +32,11 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($product as $prod)
+                @forelse($product as $prod)
                 <tr>
                     <td  class="seconds" scope="row">{{ $prod->id }}</th>
                     <td>{{ $prod->name }}</td>
-                    <td>{{ $prod->category_id }}</td>
+                    <td>{{ $prod->category->name }}</td>
                     <td class="seconds" style="width:120px;height:80px"> <image src="{{ $prod->image }}" class="w-100"> </td>
                     <td class="seconds">{{ $prod->price }}</td>
                     <td>{{ $prod->shop_price }}</td>
@@ -51,7 +51,9 @@
                         </form>
                     </td>
                 </tr>
-                @endforeach
+                @empty
+                <h3>Tavar mavjud emas!</h3>
+                @endforelse
             </tbody>
         </table>
         <script>

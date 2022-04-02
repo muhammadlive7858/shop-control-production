@@ -11,6 +11,10 @@ use App\Http\Controllers\sklad;
 use App\Http\Controllers\Sotuvlar;
 use App\Models\Sotuv_Royxati;
 use App\Http\Controllers\QarzController;
+use App\Http\Controllers\ShaxsiyQarzController;
+use App\Http\Controllers\TaminotchiCantroller;
+use App\Models\ShaxsiyQarz;
+use App\Http\Controllers\Hodims;
 // use App\Models\Product;
 // use App\Models\Category;
 use Illuminate\Support\Facades\Route;
@@ -56,10 +60,25 @@ Route::post('search' , [OmborxonaController::class , 'index'])->name('searchombo
 // users
 Route::resource('users',HodimlarController::class)->names('users');
 // sotuv royxati
-Route::get('sotuv-royxat',[Sotuvlar::class,'index'])->name('sotuvlar');
-Route::get('sotuv-edit/{id}',[Sotuvlar::class,'edit'])->name('sotuvedit');
-Route::post('update/{id}',[Sotuv_Royxati::class,'update'])->name('sotuvupdate');
-Route::delete('delete/{id}',[Sotuv_Royxati::class,'destroy'])->name('sotuvdestroy');
+Route::get('sotuv-royxat',[Sotuvlar::class,'index'])->name('sotuvlar')->middleware('role');
+Route::get('sotuv-edit/{id}',[Sotuvlar::class,'edit'])->name('sotuvedit')->middleware('role');
+Route::post('update/{id}',[Sotuv_Royxati::class,'update'])->name('sotuvupdate')->middleware('role');
+Route::delete('delete/{id}',[Sotuv_Royxati::class,'destroy'])->name('sotuvdestroy')->middleware('role');
 
 // email
-Route::resource('qarz',QarzController::class)->names('qarz');
+Route::resource('qarz',QarzController::class)->names('qarz')->middleware('role');
+// taminot
+Route::resource('taminot',TaminotchiCantroller::class)->names('taminot')->middleware('role');
+// shaxsiy qarz
+Route::resource('shaxsiyqarz',ShaxsiyQarzController::class)->names('shaxsiyqarz');
+// hodimlar
+Route::get('hodim',[Hodims::class,'index'])->name('hodim.index');
+Route::get('hodimcreate',[Hodims::class,'create'])->name('hodim.create');
+Route::post('hodimstore',[Hodims::class,'store'])->name('hodim.store');
+Route::get('hodimedit/{id}',[Hodims::class,'edit'])->name('hodim.edit');
+Route::delete('hodimdelete/{id}',[Hodims::class,'destroy'])->name('hodim.destroy');
+Route::get('hodimshow',[Hodims::class,'show'])->name('hodim.show');
+Route::post('hodimsavdo',[Hodims::class,'savdo'])->name('hodim.savdo');
+// hodim savdo
+Route::POST('/savdodelete',[Hodims::class,'savdodelete'])->name('hodimsavdo.delete');
+Route::get('showsavdo',[Hodims::class,'showsavdo'])->name('show.savdo');

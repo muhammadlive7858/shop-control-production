@@ -16,7 +16,7 @@
                 @foreach($cate as $cate)
                 <tr>
                     <td scope="row">{{ $cate->id }}</th>
-                    <td class="d-flex"><a  class="mx-1" href="{{route('category.show', $cate->id)}}">{{ $cate->name }}</a><i class="bi bi-folder-fill"></i></td>
+                    <td class="d-flex"><a  class="mx-1 link-primary" href="{{route('category.show', $cate->id)}}"><i class="bi bi-folder-fill"></i>{{ $cate->name }}</a></td>
                     <td colspan="2">{{ $cate->desc }}</td>
                     <td  class="d-flex align-center justify-content-around">
                         <a href="{{ route('category.edit',$cate->id) }}" class="mt-2"><i class="bi bi-pencil btn-success w-100 p-2" style='border-radius:5px'></i></a>
@@ -25,7 +25,6 @@
                             @method('delete')
                         <button  onclick="delet()" class="btn-danger w-100 p-1 "style='border-radius:5px' ><i class="bi bi-trash-fill " ></i></button>
                         </form>
-                        <a href="{{ route('category.show') }}" class="btn btn-outline-primary">Show</a>
                     </td>
                 </tr>
                 @endforeach

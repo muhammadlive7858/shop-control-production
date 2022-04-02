@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             $table->integer('category_id');
             $table->string('desc')->nullable();
             $table->string('image')->nullable();
+            $table->integer('taminotchi')->nullable();
             $table->integer('price');
             $table->string('shop_price');
             $table->integer('producttime');
